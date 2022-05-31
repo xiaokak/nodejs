@@ -43,7 +43,7 @@
             align-items: center;
             background-color: rgba(255, 255, 255, 0.1);
 
-            box-shadow: 0, 0, 0, 0 0 10px #fff;
+
         }
 
         .header div {
@@ -224,7 +224,7 @@
     <div class="main">
         <div class="left">
             <div id="go">
-              
+
 
             </div>
 
@@ -320,7 +320,7 @@
 
 
     function next() {
-        if (index != allpage - 1) {
+        if (index !== allpage - 1) {
             index++;
             getRecord()
         }
@@ -553,7 +553,7 @@
 
 
 
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 
                 var rc = document.getElementById("rc");
                 var pg = document.getElementById('page')
@@ -565,7 +565,7 @@
                 var json = JSON.parse(xmlhttp.responseText);
 
 
-                if (json.status == 200) {
+                if (json.status === 200) {
                     var thead = document.createElement('thead');
 
                     var td1 = document.createElement('td');
@@ -634,18 +634,18 @@
 
         xmlhttp.onreadystatechange = function () {
 
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 
                 var json = JSON.parse(xmlhttp.responseText);
 
-                if (json.status == 200) {
+                if (json.status === 200) {
                     var ob = document.getElementById('go');
                     var se = document.getElementById('select');
 
                     for (let i = 0; i < json.data.length; i++) {
                         var item = document.createElement("div")
                         item.className = 'card';
-                       
+
                         var img = document.createElement("img")
                         img.src=json.data[i].src;
                         var name = document.createElement("div")
@@ -670,7 +670,7 @@
                         var but2 = document.createElement('div');
                         but2.innerHTML = '查看评论'
                         but2.className='but'
-                       
+
                         but2.onclick = function () {
                             location.href = 'article.html?id='+json.data[i].id
                         }
@@ -678,7 +678,7 @@
                         under.appendChild(but1);
                         under.appendChild(but2);
 
-                    
+
 
 
 
@@ -691,7 +691,7 @@
                         ob.appendChild(item)
 
 
-                        
+
 
 
 

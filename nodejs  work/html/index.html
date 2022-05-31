@@ -16,7 +16,7 @@
             align-items: center;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 30px;
-            box-shadow: 0 0 10px #fff; 
+            box-shadow: 0 0 10px #fff;
         }
         input{
             background-color: transparent;
@@ -28,7 +28,7 @@
             margin: 10px 0;
             padding-left: 10px;
 
-           
+
         }
         .but{
             width: 120px;
@@ -39,11 +39,11 @@
             font-weight: 600;
             margin-top: 20px;
             font-size:16px;
-            
+
             color: #fff;
             margin: 20px 20px 0 20px;
             text-align: center;
-           
+
         }
         form{
             width: 100%;
@@ -52,15 +52,18 @@
             flex-flow: column;
             justify-content: center;
             align-items: center;
-        }  
+        }
         form div{
             text-align: center;
             width: 100%;
-        }     
+        }
     </style>
     <script src="js/http.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script>
+
+
+        //import Cookies from "js-cookie";
 
         function sign() {
 
@@ -87,16 +90,16 @@
             xmlhttp.send(JSON.stringify(obj));  // 要发送的参数，要转化为json字符串发送给后端，后端就会接受到json对象
 
             xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 
                     var json = JSON.parse(xmlhttp.responseText);
-                    if (json.status == 400)
+                    if (json.status === 400)
                         alert(json.data);
                     else {
                         alert("登陆成功！");
 
 
-                        Cookies.set('name', json.data.id);
+                        //Cookies.set('name', json.data.id);
 
 
                         window.location.href = './select.html';
@@ -113,7 +116,7 @@
             console.log(arr)
             for (var i = 0, len = arr.length; i < len; i++) {
                 var item = arr[i].split("=");
-                if (item[0] == name) {
+                if (item[0] === name) {
                     return item[1];
                 }
             }
@@ -128,16 +131,16 @@
         <form>
             <div>  账号 <input type="text" id="name" /> </div>
             <div>  密码 <input type="password" id="pass" /> </div>
-           
-         
+
+
         </form>
 
-          
+
         <div>
             <input type="submit" value="提交" onclick="infoConfirmed()" class="but"/>
             <input type="submit" value="注册" onclick="sign()" class="but"/>
         </div>
-       
+
     </div>
 
 </body>

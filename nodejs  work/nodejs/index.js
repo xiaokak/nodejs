@@ -1,6 +1,6 @@
-var express             = require('express');
-var app                 = express();
-var bodyParse           =require('body-parser')
+var express = require('express');
+var app = express();
+var bodyParse = require('body-parser')
 
 require('./db/db.js');
 

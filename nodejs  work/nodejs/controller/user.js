@@ -6,15 +6,15 @@ let { add, query,findByName, queryOne, update } = require("../dao/user.js"); // 
 
 router.post('/:id', function (req, res, next) {
     let urlParam = req.body;
-    
+
     findByName(urlParam, function (success) {
-        if (success!=null && success.id!= urlParam.id) {
+        if (success!=null && success.id!== urlParam.id) {
             res.json({
                 status: "400",
                 data: '账号已经被用过了哦'
             });
         } else {
-            
+
             update(urlParam, function (success) {
                 if (success == null) {
                     res.json({
@@ -62,8 +62,8 @@ router.post('', function (req, res, next) {
 
 router.get('/:id', function (req, res, next) {
     let urlParam = req.params.id;
- 
-  
+
+
     queryOne(urlParam, function (success) {
         if (success == null) {
             res.json({
@@ -94,7 +94,7 @@ router.post('/sign/new', function (req, res, next) {
             });
         } else {
 
-           
+
             add(urlParam, function (success) {
                 if (success == null) {
                     res.json({
